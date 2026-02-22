@@ -28,13 +28,11 @@ interface InstallPwaButtonProps {
 
 const InstallPwaButton = ({ isDarkTheme }: InstallPwaButtonProps) => {
   const { isInstallable, promptInstall } = usePwaInstall();
-  // We use the store to detect the theme, assuming Header keeps it synced
-
 
   if (!isInstallable) return null;
 
-  // Animation Colors Configuration are now handled via CSS or Tailwind if static
-  const colorClass = isDarkTheme ? 'text-white' : 'text-black';
+  // Animation Colors Configuration: Top (-4) = Red, Bottom (0) = White
+  const colors = ['#ef4444', '#ffffff', '#ef4444'];
 
   return (
     <Button
@@ -44,9 +42,19 @@ const InstallPwaButton = ({ isDarkTheme }: InstallPwaButtonProps) => {
       className="hover:bg-black/10 dark:hover:bg-white/10 font-bold"
       title="Instalar App en PC"
     >
-      <div className="animate-bounce-subtle">
-        <MonitorDown size={24} className={cn("drop-shadow-lg", colorClass, "hover:text-red-500 transition-colors")} aria-hidden="true" />
-      </div>
+      <motion.div
+        animate={{
+          y: [-4, 0, -4],
+          color: colors,
+        }}
+        transition={{
+          duration: 1.2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <MonitorDown size={24} className="drop-shadow-lg" />
+      </motion.div>
     </Button>
   );
 };
