@@ -10,6 +10,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  transpilePackages: ['@saladillo/core'],
   // -------------------------------------
 
   images: {

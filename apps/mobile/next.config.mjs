@@ -10,6 +10,8 @@ const nextConfig = {
         optimizePackageImports: ['lucide-react', 'swiper', 'date-fns', 'lodash'],
     },
 
+    transpilePackages: ['@saladillo/core'],
+
     eslint: {
         ignoreDuringBuilds: true,
     },
