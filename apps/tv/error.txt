@@ -1,0 +1,66 @@
+Actúa como un Experto en React y Debugging de Video.
+
+**ERROR CRÍTICO EN YOUTUBE (Stack Overflow / Player Not Available):**
+El reproductor de YouTube está fallando con: `ReactPlayer: YouTube player could not call playVideo – The player was not available`.
+El log muestra un bucle infinito de llamadas, lo que sugiere que el componente se está renderizando en bucle o que la prop `videoUrl` está cambiando inestablemente.
+
+**OBJETIVO:**
+Blindar el componente `VideoPlayer.tsx` para asegurar que:
+1.  `ReactPlayer` SOLO se renderice si hay una `videoUrl` válida (string no vacío).
+2.  Usar la prop `key` para forzar una instancia limpia cuando cambia el video.
+3.  Manejar el evento `onReady` para evitar llamar a `play()` antes de tiempo.
+
+**TAREA:**
+1.  Abre `src/components/VideoPlayer.tsx`.
+2.  **REEMPLAZA** la lógica de renderizado del `ReactPlayer` con este bloque robusto.
+
+**CÓDIGO A IMPLEMENTAR (Reemplaza el bloque if(videoUrl)):**
+
+```tsx
+  // --- DENTRO DEL RETURN DEL COMPONENTE ---
+
+  // VALIDACIÓN ESTRICTA: Solo renderiza si videoUrl es un string válido
+  {videoUrl && typeof videoUrl === 'string' && videoUrl.trim() !== '' ? (
+    <div className='player-wrapper relative w-full h-full bg-black'>
+      <ReactPlayer
+        // LA CLAVE MAESTRA: Forzamos recrear el componente si cambia la URL
+        key={videoUrl} 
+        
+        ref={playerRef}
+        className='react-player'
+        
+        // Pasamos la prop correcta
+        url={videoUrl}
+        
+        width='100%'
+        height='100%'
+        
+        // Manejo de Estado
+        playing={playing} // Asegúrate de que 'playing' viene del estado o props
+        controls={true}
+        
+        // Callbacks de Seguridad
+        onReady={() => console.log("✅ YouTube Player Ready:", videoUrl)}
+        onStart={() => console.log("▶ YouTube Started")}
+        onEnded={onClose}
+        onError={(e) => console.error("❌ Error en YouTube Player:", e)}
+        
+        // Configuración para evitar errores de autolay
+        config={{
+          youtube: {
+            playerVars: { 
+              showinfo: 0,
+              modestbranding: 1,
+              origin: typeof window !== 'undefined' ? window.location.origin : undefined
+            }
+          }
+        }}
+      />
+    </div>
+  ) : (
+    // ... AQUÍ VA TU LÓGICA DE SLIDE GENERADO (Imagen + Audio) ...
+    // Asegúrate de que este bloque else siga existiendo como lo definimos antes
+    imageUrl && audioUrl ? (
+       // ... código del slide ...
+    ) : null
+  )}

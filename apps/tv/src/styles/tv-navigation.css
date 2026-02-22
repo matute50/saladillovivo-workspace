@@ -1,0 +1,105 @@
+/**
+ * TV Navigation Styles
+ * Basado en Android TV Navigation Mastery skill
+ * 
+ * Proporciona estilos para elementos focusables en la navegación con control remoto
+ */
+
+/* Estado base de focusable */
+[data-focusable="true"] {
+    outline: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* Estado focused */
+.tv-focused {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow:
+        0 0 0 4px rgb(220 38 38),
+        /* Ring rojo Saladillo */
+        0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Sombra profunda */
+}
+
+/* Focused con animación de pulso (opcional) */
+.tv-focused::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: inherit;
+    border: 2px solid rgb(220 38 38);
+    animation: focus-pulse 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes focus-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+/* Variantes por categoría/grupo */
+[data-focus-group="video"] .tv-focused {
+    box-shadow:
+        0 0 0 4px rgb(220 38 38),
+        0 10px 30px rgba(220, 38, 38, 0.4);
+}
+
+[data-focus-group="news"] .tv-focused {
+    box-shadow:
+        0 0 0 4px rgb(59 130 246),
+        0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+[data-focus-group="controls"] .tv-focused {
+    box-shadow:
+        0 0 0 4px rgb(34 197 94),
+        0 10px 30px rgba(34, 197, 94, 0.4);
+}
+
+/* Variantes por capa (layer) */
+[data-focus-layer="0"] .tv-focused {
+    z-index: 10;
+}
+
+[data-focus-layer="1"] .tv-focused {
+    z-index: 20;
+}
+
+[data-focus-layer="2"] .tv-focused {
+    z-index: 30;
+}
+
+/* Smooth scroll cuando cambia el focus */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Accessibility: Mantener focus visible incluso sin animaciones */
+@media (prefers-reduced-motion: reduce) {
+    [data-focusable="true"] {
+        transition: none;
+    }
+
+    .tv-focused::after {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+/* Responsive: Ajustar scale en pantallas pequeñas */
+@media (max-width: 768px) {
+    .tv-focused {
+        transform: scale(1.05);
+    }
+}

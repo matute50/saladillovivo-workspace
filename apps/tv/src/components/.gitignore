@@ -1,0 +1,6 @@
+{
+0
+clearTimeout(timer)
+import('react-player')
+setShowIntro(false)
+void

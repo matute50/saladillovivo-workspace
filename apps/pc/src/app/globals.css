@@ -1,0 +1,493 @@
+/* src/index.css */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('/fonts/CenturyGothic.woff2') format('woff2'),
+    url('/fonts/CenturyGothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('/fonts/CenturyGothic-Bold.woff2') format('woff2'),
+    url('/fonts/CenturyGothic-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@layer base {
+  :root {
+    /* Light Mode */
+    --background-start: 0 0% 100%;
+    /* White */
+    --background-end: 0 0% 90%;
+    /* #E6E6E6 */
+    /* Maintain white for the first 120px to match sticky header, then fade to gray */
+    --background: linear-gradient(to bottom, hsl(var(--background-start)) 0px, hsl(var(--background-start)) 120px, hsl(var(--background-end)) 100%);
+    --foreground: 0 0% 0%;
+    /* black */
+    --card-start: 223 44% 95%;
+    /* lighter */
+    --card-end: 0 0% 65%;
+    /* darker */
+    --card: hsl(var(--card-start));
+    /* Fallback */
+    --card-foreground: 0 0% 0%;
+    /* black */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 225 100% 30%;
+    /* #003399 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 45%;
+    --accent: hsl(var(--background-start));
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%;
+    /* red */
+    --destructive-foreground: 0 0% 100%;
+    --border: 107 7% 47%;
+    /* #707f6f */
+    --input: hsl(var(--background-start));
+    --ring: 225 100% 30%;
+    --radius: 0.5rem;
+
+    --footer-bg-start: 0 0% 90%;
+    /* claro */
+    --footer-bg-end: 0 0% 65%;
+    /* oscuro */
+    --footer-bg-color: #aaaaaa;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+
+    --footer-height: 22.50423px;
+    --footer-height-mobile: 27.5562px;
+    --player-height-mobile: calc((100vw * 9 / 16));
+    --player-info-bar-height: 24px;
+
+    --header-height: 56px;
+    --desktop-header-height: 72px;
+    --ticker-height: 32px;
+
+    --carousel-button-color: 255, 255, 255;
+    /* Blanco para modo claro */
+    --carousel-button-border-color: 255, 255, 255;
+    /* Blanco para modo claro */
+  }
+
+  .dark {
+    /* Dark Mode */
+    --background-start: 0 0% 0%;
+    /* black */
+    --background-end: 0 0% 0%;
+    /* black */
+    --background: hsl(var(--background-start));
+    /* Fallback */
+    --foreground: 0 0% 100%;
+    /* #FFFFFF */
+    --card-start: 0 0% 0%;
+    /* darker */
+    --card-end: 0 0% 28%;
+    /* lighter */
+    --card: hsl(var(--card-start));
+    /* Fallback */
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 225 100% 30%;
+    /* #003399 */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 210 100% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 80%;
+    /* #CCCCCC */
+    --accent: 0 0% 13%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 50%;
+    /* red */
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 28%;
+    /* lighter */
+    --input: hsl(var(--background-start));
+    --ring: 220 100% 70%;
+
+    --footer-bg-start: 0 0% 0%;
+    /* darker */
+    --footer-bg-end: 0 0% 28%;
+    /* lighter */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --link-color-dark: #6699ff;
+
+    --carousel-button-color: 255, 255, 255;
+    /* Blanco para modo oscuro */
+    --carousel-button-border-color: 255, 255, 255;
+    /* Blanco para modo oscuro */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    @apply text-foreground;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+    min-height: 100%;
+
+    /* Custom Scrollbar for Webkit browsers */
+    scrollbar-width: thin;
+    /* "auto" or "thin" */
+    scrollbar-color: hsl(var(--muted-foreground)) hsl(var(--muted));
+    /* thumb and track color */
+  }
+
+  /* For Webkit browsers (Chrome, Safari, Edge) */
+  body::-webkit-scrollbar {
+    width: 8px;
+    /* width of the entire scrollbar */
+  }
+
+  body::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    /* color of the tracking area */
+    border-radius: 10px;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground));
+    /* color of the scroll thumb */
+    border-radius: 10px;
+    /* roundness of the scroll thumb */
+    border: 2px solid hsl(var(--muted));
+    /* creates padding around scroll thumb */
+  }
+
+  /* Dark mode scrollbar styles */
+  .dark body::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground));
+    /* color of the scroll thumb in dark mode */
+    border: 2px solid hsl(var(--background-start));
+    /* creates padding around scroll thumb in dark mode */
+  }
+
+  .dark body::-webkit-scrollbar-track {
+    background: hsl(var(--background-start));
+    /* color of the tracking area in dark mode */
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hide-scrollbar {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    /* WebKit */
+    display: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-foreground;
+  }
+
+  a {
+    @apply text-primary;
+  }
+
+  /* Estilos para modo oscuro */
+  html.dark a {
+    color: #6699ff !important;
+    transition: color 0.3s ease;
+  }
+
+  /* Títulos de noticias (todas las tarjetas + noticia destacada) */
+  html.dark .card h3,
+  html.dark .card a h3,
+  html.dark .featured-news-card h1,
+  html.dark .featured-news-card a h1 {
+    color: #ffffff !important;
+    transition: color 0.3s linear !important;
+  }
+
+  /* Al pasar el mouse */
+  html.dark .card h3:hover,
+  html.dark .card a:hover h3,
+  html.dark .featured-news-card h1:hover,
+  html.dark .featured-news-card a:hover h1 {
+    color: #6699ff !important;
+  }
+
+  html.dark button:active {
+    background-color: #6699ff !important;
+    transition: background-color 0.3s ease;
+  }
+
+  html.dark .carousel-nav-button:active {
+    background-color: #6699ff !important;
+    transition: background-color 0.3s ease;
+  }
+
+  /* --- ESTILOS PARA LA PANTALLA DE CARGA --- */
+  #loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: #6699ff;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+  }
+
+  #loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #333;
+    border-top: 6px solid #6699ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ===== LINKS DEL FOOTER ===== */
+  footer a,
+  footer a:visited {
+    color: #6699ff !important;
+    transition: color 0.3s ease-in-out !important;
+  }
+
+  html.dark footer a,
+  html.dark footer a:visited {
+    color: #6699ff !important;
+    transition: color 0.3s ease-in-out !important;
+  }
+
+  html.dark footer a:hover {
+    color: #ffffff !important;
+  }
+
+  .font-futura-bold {
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2 !important;
+  }
+
+  .font-century-gothic {
+    font-family: 'Century Gothic', sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    background-image: linear-gradient(to bottom, hsl(var(--card-start)), hsl(var(--card-end)));
+    @apply rounded-lg text-card-foreground;
+    box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color);
+  }
+
+
+  .card-blur {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+  }
+
+  .card-blur-player {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 0;
+  }
+
+  @media (min-width: 768px) {
+    .card-blur-player {
+      border-radius: 0.75rem;
+    }
+  }
+
+  .shadow-card {
+    box-shadow: 0 6px 10px -2px var(--shadow-color), 0 3px 6px -3px var(--shadow-color);
+  }
+
+  .shadow-player {
+    box-shadow: 0 12px 20px -4px var(--shadow-color), 0 5px 8px -5px var(--shadow-color);
+  }
+
+  .shadow-thumbnail {
+    box-shadow: 0 4px 6px -2px var(--shadow-color);
+  }
+
+  .shadow-header {
+    box-shadow: 0 5px 8px -2px var(--shadow-color);
+  }
+
+  .shadow-footer {
+    box-shadow: 0 -5px 8px -2px var(--shadow-color);
+  }
+
+  .shadow-pop {
+    box-shadow: 0 35px 60px -15px var(--shadow-color);
+  }
+
+  .control-button {
+    @apply bg-background hover:bg-accent focus-visible:bg-accent;
+  }
+
+  .carousel-nav-button {
+    background-color: rgba(0, 0, 0, 0.15);
+    /* Negro con 15% de opacidad */
+    backdrop-filter: blur(10px);
+    /* Efecto blur */
+    -webkit-backdrop-filter: blur(10px);
+    /* Para compatibilidad con navegadores Webkit */
+  }
+
+
+  .date-on-image {
+    @apply absolute bottom-2 left-2 bg-black/60 text-white text-xs font-semibold px-2 py-1 rounded-md flex items-center;
+  }
+
+  .search-box {
+    @apply bg-input text-foreground placeholder:text-foreground/70 border border-black dark:border-white;
+  }
+
+  .dark .search-box {
+    @apply text-white placeholder:text-white/70;
+  }
+
+  .search-box-icon {
+    @apply text-foreground;
+  }
+
+  .dark .search-box-icon {
+    @apply text-white;
+  }
+
+  .ticker-background {
+    background-color: rgba(235, 241, 249, 0.60);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .dark .ticker-background {
+    background-color: rgba(20, 20, 20, 0.60);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+@keyframes pulse-color-nav-dark {
+
+  0%,
+  100% {
+    background-color: #212121;
+  }
+
+  50% {
+    background-color: #3d3d3d;
+  }
+}
+
+@keyframes pulse-color-nav-light {
+
+  0%,
+  100% {
+    background-color: #3d3d3d;
+  }
+
+  50% {
+    background-color: #aaaaaa;
+  }
+}
+
+@keyframes bounce-subtle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 1.2s ease-in-out infinite;
+}
+
+/* Intento de ocultar posibles overlays de silencio del reproductor de YouTube */
+.ytp-bezel-text-wrapper {
+  display: none !important;
+}
+
+.ytp-top-left-controls .ytp-mute-button,
+.ytp-top-left-controls .ytp-volume-area {
+  display: none !important;
+}
+
+.ytp-tooltip-text[aria-label*="silencio"],
+.ytp-tooltip-text[title*="silencio"],
+.ytp-tooltip-text[aria-label*="mute"],
+.ytp-tooltip-text[title*="mute"],
+.ytp-unmute-button {
+  display: none !important;
+}
+
+.ytp-chrome-bottom .ytp-mute-button {
+  display: none !important;
+}
+
+.ytp-volume-slider-handle {
+  display: none !important;
+}

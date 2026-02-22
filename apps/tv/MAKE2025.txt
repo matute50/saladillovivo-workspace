@@ -1,0 +1,135 @@
+Guía Definitiva: Cómo Usar Gemini CLI para Crear Escenarios de Automatización en Make.com
+
+1.0 Introducción: La Sinergia entre IA Conversacional y Automatización Visual
+
+En el entorno digital actual, la eficiencia operativa es un diferenciador clave. La capacidad de automatizar tareas repetitivas no solo libera tiempo valioso, sino que también reduce errores y acelera los flujos de trabajo. Esta guía explora la poderosa combinación de dos herramientas de vanguardia: Gemini CLI, una interfaz de línea de comandos (CLI) impulsada por IA que permite diseñar soluciones complejas a través del lenguaje natural, y Make.com, una plataforma de automatización visual sin código que conecta miles de aplicaciones para ejecutar tareas de forma autónoma. Juntas, ofrecen un enfoque híbrido que une la planificación estratégica conversacional con la ejecución visual e intuitiva. El objetivo de este documento es guiarlo paso a paso en el proceso de instruir a Gemini CLI para que actúe como un arquitecto de automatización, diseñando un escenario preciso que publicará automáticamente el nuevo contenido de un feed RSS de su sitio web en sus páginas de Facebook e Instagram, con una configuración actualizada a octubre de 2025.
+
+Para asegurar el éxito de este proyecto, es fundamental preparar adecuadamente el entorno de trabajo y reunir todas las herramientas necesarias antes de comenzar.
+
+2.0 Requisitos Previos y Configuración Inicial
+
+Una configuración meticulosa es la base de cualquier proceso de automatización fluido y sin errores. Antes de interactuar con la IA para diseñar nuestro flujo de trabajo, debemos asegurarnos de que todos los componentes de software, cuentas y fuentes de datos estén listos y correctamente configurados. Esta sección detalla cada uno de los elementos indispensables para construir nuestro escenario de publicación automática.
+
+* Un Feed RSS Optimizado: Necesitará la URL de un feed RSS 2.0 de su sitio web. Para que la automatización funcione correctamente, el feed debe contener etiquetas XML esenciales que estructuren la información de cada artículo. Según las mejores prácticas, su feed debe incluir como mínimo:
+  * <title>: El título del artículo.
+  * <link>: El enlace directo (URL canónica) al artículo completo.
+  * <description>: Un resumen o extracto del contenido.
+  * <pubDate>: La fecha y hora de publicación del artículo.
+  * <content:encoded>: El contenido completo del artículo, idealmente en formato HTML.
+  * Plataformas como WordPress permiten personalizar estos feeds para incluir elementos adicionales, como imágenes destacadas, lo cual es altamente recomendable para enriquecer las publicaciones en redes sociales.
+* Cuentas de Plataforma Activas: Deberá tener acceso a las siguientes cuentas:
+  * Una cuenta en Make.com (puede comenzar con el plan gratuito).
+  * Una Página de Facebook donde se publicarán los artículos.
+  * Una cuenta de Instagram para Empresas vinculada a su Página de Facebook.
+* Instalación y Autenticación de Gemini CLI: La interfaz de línea de comandos de Gemini es la herramienta que usaremos para generar nuestro plan.
+  * Instalación: Requiere tener instalado Node.js 20 o una versión superior. Una vez cumplido este requisito, puede instalar Gemini CLI globalmente a través de npm.
+  * Autenticación: Para usuarios principiantes, el método recomendado es autenticarse utilizando una Cuenta de Google personal. Esto otorga acceso al nivel gratuito, que incluye el potente modelo Gemini 2.5 Pro y una generosa cuota de 60 solicitudes por minuto.
+
+Con todas las herramientas configuradas y las cuentas listas, estamos preparados para el siguiente paso: utilizar la inteligencia artificial para diseñar el plan de nuestro escenario de automatización.
+
+3.0 Fase 1: Diseñando el Plan de Automatización con Gemini CLI
+
+En esta fase, no conectaremos Gemini CLI directamente a Make.com. En su lugar, adoptaremos un enfoque conocido como "vibe coding" o generación de soluciones a partir de un prompt detallado. Gemini CLI actuará como un arquitecto experto en automatización, investigando la tarea solicitada y generando un plan de implementación preciso y paso a paso. Este plan será nuestro manual de instrucciones para construir el escenario en la interfaz visual de Make.com, asegurando que cada módulo, configuración y mapeo de datos sea correcto desde el principio.
+
+3.1 Descomponiendo el Escenario de Make.com
+
+Un prompt efectivo para la generación de un plan de automatización debe descomponer el flujo de trabajo en sus componentes lógicos. Al estructurar nuestra solicitud de esta manera, guiamos a la IA para que nos proporcione una respuesta clara y accionable, utilizando la terminología correcta de la plataforma Make.com.
+
+1. El Disparador (Trigger): Todo escenario comienza con un evento que lo inicia. En nuestro caso, el disparador será el módulo "RSS" de Make.com, configurado con la acción "Watch RSS feed items" (Vigilar nuevos elementos en el feed RSS). Esto hará que el escenario se ejecute cada vez que se detecte un nuevo artículo en nuestro feed.
+2. La Primera Acción (Action): Una vez que el escenario se activa, la primera tarea será publicar en Facebook. Para ello, necesitaremos el módulo "Facebook Pages" con la acción "Create a Post" (Crear una Publicación).
+3. La Segunda Acción (Action): Simultáneamente o en secuencia, publicaremos en Instagram. Esto requerirá el módulo "Instagram for Business" con una acción para crear una nueva publicación (por ejemplo, "Create a Photo Post" si incluimos una imagen).
+4. Mapeo de Datos: Es crucial indicar a la IA cómo se deben conectar los datos. Debemos especificar que los datos extraídos por el módulo RSS se deben "mapear" a los campos de los módulos de redes sociales. Por ejemplo, la etiqueta <title> del feed RSS se convertirá en el texto principal del post de Facebook, y la etiqueta <link> se añadirá como la URL en la publicación.
+5. Lógica Condicional (Filtro): Para un mayor control, podemos añadir una condición. Usaremos un filtro para que el escenario solo proceda a publicar si el título o la descripción del artículo contienen ciertas palabras clave. Esto asegura que solo el contenido más relevante sea compartido automáticamente.
+6. Programación: Finalmente, debemos definir la frecuencia con la que Make.com debe revisar el feed RSS en busca de nuevos artículos. Podemos especificar que el escenario se ejecute, por ejemplo, "cada 12 horas".
+
+3.2 Construyendo el Prompt Maestro para Gemini CLI
+
+Sintetizando todos los componentes anteriores, podemos construir un "prompt maestro" que guiará a Gemini CLI para generar nuestro plan de implementación. A continuación, se presenta una plantilla que puede copiar y adaptar con su información específica.
+
+Actúa como un experto en la plataforma de automatización Make.com. Necesito que generes un plan de implementación detallado para crear un escenario que automatice las publicaciones en mis redes sociales.
+
+El objetivo es el siguiente:
+1.  **Disparador:** El escenario debe activarse cada vez que haya un nuevo artículo en el feed RSS de mi sitio web, ubicado en [Introduce aquí la URL de tu feed RSS].
+2.  **Filtro:** Solo debe procesar los artículos cuyo `<description>` o `<title>` contenga las palabras clave: ["palabra clave 1", "palabra clave 2"].
+3.  **Acción 1 (Facebook):** Debe crear una nueva publicación en mi Página de Facebook. El contenido del post debe ser una combinación del `<title>` del artículo y su `<link>`.
+4.  **Acción 2 (Instagram):** Debe crear una nueva publicación en mi cuenta de Instagram for Business. El contenido debe incluir el `<title>` del artículo. Si el feed RSS proporciona una imagen destacada, debe usarla.
+5.  **Programación:** El escenario completo debe ejecutarse una vez cada 12 horas.
+
+Tu respuesta debe ser un plan claro y estructurado. Para cada módulo (RSS, Filtro, Facebook Pages, Instagram), detalla:
+- El nombre exacto del módulo a seleccionar en Make.com.
+- La configuración específica requerida en cada campo.
+- El mapeo exacto de los datos provenientes del módulo RSS a los campos de los módulos de Facebook e Instagram.
+
+
+Con este prompt detallado, estamos listos para ejecutarlo en Gemini CLI. La respuesta generada por la IA será nuestra hoja de ruta para la implementación en la plataforma visual de Make.com.
+
+4.0 Fase 2: Implementación del Plan Generado por IA en Make.com
+
+Ahora que Gemini CLI nos ha proporcionado un plan detallado, es hora de pasar de la teoría a la práctica. En esta fase, utilizaremos la salida de la IA como un manual de instrucciones preciso para construir el escenario de automatización directamente en la interfaz visual de arrastrar y soltar de Make.com. Cada paso del plan corresponderá a una acción concreta en la plataforma.
+
+4.1 Configuración del Módulo Disparador: RSS
+
+El primer paso es establecer el punto de partida de nuestro flujo de trabajo: la monitorización del feed RSS.
+
+1. En su panel de Make.com, cree un nuevo escenario. Haga clic en el círculo central para añadir el primer módulo y busque "RSS".
+2. Seleccione el disparador (trigger) llamado "Watch RSS feed items".
+3. En el campo de configuración, ingrese la URL de su feed RSS en el campo correspondiente.
+4. Establezca el campo "Maximum number of returned items" (cantidad máxima de resultados) en un número bajo, como 5. Esto es útil durante la fase de pruebas para no procesar una cantidad masiva de artículos de golpe.
+5. Haga clic en "OK" para guardar la configuración del módulo.
+
+4.2 Implementación de la Lógica de Filtro
+
+Para asegurarnos de que solo se publique contenido relevante, implementaremos el filtro que diseñamos en nuestro plan. Este se colocará inmediatamente después del disparador RSS.
+
+1. Haga clic en la línea de conexión entre el módulo RSS y el siguiente módulo (que añadiremos en el paso 4.3) para abrir el menú de configuración y seleccione "Set up a filter" (Configurar un filtro).
+2. Asigne un nombre descriptivo al filtro, como "Filtrar por palabra clave".
+3. En la primera casilla de Condición, seleccione la variable del módulo RSS que desea analizar, por ejemplo, Title.
+4. En el menú desplegable de operadores de texto, elija "Contains (case-insensitive)" (Contiene, sin distinguir mayúsculas y minúsculas).
+5. En la última casilla, escriba la palabra clave que desea buscar. Puede añadir múltiples condiciones usando la lógica "OR" si desea filtrar por varias palabras clave.
+6. Haga clic en "OK". Ahora, solo los artículos que cumplan con esta condición continuarán por el flujo de trabajo.
+
+4.3 Configuración del Router para Flujos Paralelos
+
+Dado que queremos publicar el mismo artículo en dos plataformas diferentes (Facebook e Instagram), necesitamos dividir el flujo de trabajo en dos ramas paralelas. Para ello, utilizaremos el módulo Router.
+
+1. Haga clic en el semicírculo a la derecha del módulo RSS para añadir un nuevo módulo.
+2. Busque "Flow Control" y dentro de sus opciones seleccione el módulo "Router".
+3. El Router se conectará automáticamente al módulo RSS (con el filtro que acabamos de crear en la línea de conexión). Verá que del Router emanan dos ramas vacías, listas para que les conectemos las acciones de Facebook e Instagram.
+
+4.4 Configuración de las Acciones: Facebook e Instagram
+
+Con el flujo ahora dividido, añadiremos los módulos que ejecutarán las publicaciones en cada red social, cada uno en su propia rama del Router.
+
+1. Haga clic en uno de los semicírculos vacíos conectados al Router. Busque "Facebook Pages" y selecciónelo.
+2. Elija la acción "Create a Post".
+3. Conecte su cuenta de Facebook a Make.com si aún no lo ha hecho y seleccione la página de destino donde desea publicar.
+4. Mapee los campos: En el campo "Message", arrastre la variable Title desde el panel de datos que aparece del módulo RSS. De manera similar, en el campo "Link", arrastre la variable Link del módulo RSS.
+5. Ahora, haga clic en el otro semicírculo vacío del Router. Busque "Instagram for Business" y añádalo.
+6. Seleccione la acción apropiada (por ejemplo, "Create a Photo Post"). Conecte su cuenta y mapee el contenido de texto (usando la variable Title del RSS). Si su feed lo proporciona, mapee también la URL de la imagen destacada en el campo de imagen correspondiente.
+
+5.0 Pruebas, Activación y Monitoreo del Escenario
+
+La fase de pruebas es un paso crítico que no debe omitirse. Asegura que la automatización se comporte exactamente como se espera, evitando publicaciones no deseadas o con formato incorrecto. Una vez verificado su funcionamiento, podremos activarla con confianza.
+
+1. Ejecución Manual: Dentro del editor de escenarios de Make.com, utilice el botón "Run Once" (Ejecutar una vez). Esto activará el escenario manualmente, permitiéndole procesar los datos más recientes disponibles en su feed RSS. Podrá observar en tiempo real cómo los datos fluyen a través de los módulos y si son detenidos por el filtro o procesados correctamente por las acciones.
+2. Verificación de Resultados: Tras la ejecución manual, diríjase a su página de Facebook y a su perfil de Instagram para confirmar que las publicaciones se hayan creado correctamente. Verifique que el texto, el enlace y la imagen (si aplica) se muestren con el formato esperado.
+3. Programación y Activación: Una vez que esté satisfecho con los resultados de las pruebas, es hora de activar la automatización. Localice el interruptor de "Scheduling" (Programación) en la parte inferior izquierda del editor. Actívelo y configure la frecuencia de ejecución según lo definido en el plan (por ejemplo, cada 12 horas). Guarde el escenario.
+4. Monitoreo: Make.com ofrece un historial de ejecuciones donde puede revisar cada vez que su escenario se ha activado. Esta herramienta es invaluable para monitorear el rendimiento y diagnosticar posibles errores que puedan surgir en el futuro, permitiéndole solucionarlos rápidamente.
+
+Con el escenario probado, activado y programado, hemos completado la implementación. Sin embargo, hay algunas consideraciones adicionales para optimizar y asegurar nuestro flujo de trabajo a largo plazo.
+
+6.0 Consideraciones de Seguridad y Personalización Avanzada
+
+Incluso en los sistemas automatizados, la seguridad y el mantenimiento continuo son fundamentales para garantizar la fiabilidad y la integridad a largo plazo. Más allá de la implementación inicial, existen prácticas recomendadas y opciones de personalización avanzadas que pueden mejorar sigilosamente su flujo de trabajo.
+
+* Seguridad de Gemini CLI: Es importante ser consciente de la seguridad de las herramientas que utiliza. Según el boletín de ciberseguridad 2025-608, se ha descubierto una vulnerabilidad en Gemini CLI que "permite a los atacantes ejecutar silenciosamente comandos maliciosos en los sistemas de los desarrolladores mediante una sofisticada combinación de inyección de comandos, validación inadecuada y diseño engañoso de la interfaz de usuario." Como medida de precaución, mantenga siempre la herramienta actualizada a su última versión y sea cauteloso al otorgar permisos de ejecución de comandos de shell, especialmente en modos que auto-aprueban acciones.
+* Contexto Persistente con GEMINI.md: Para optimizar sus interacciones con Gemini CLI, puede crear un archivo llamado GEMINI.md en la raíz de su proyecto. Este archivo proporciona instrucciones permanentes que la IA seguirá en cada solicitud. Por ejemplo, podría incluir una regla como: "Para todos los escenarios de Make.com que diseñes, incluye siempre un módulo de manejo de errores al final de cada rama del flujo de trabajo." Esto asegura consistencia y robustez en todos los planes que genere.
+* Enriquecimiento del Feed RSS: La calidad de sus publicaciones en redes sociales depende directamente de la calidad de los datos en su feed RSS. Para obtener publicaciones visualmente más atractivas, especialmente en Instagram, considere personalizar el feed RSS de su sitio WordPress. Guías como las de WPBeginner explican cómo modificar el feed para incluir de forma nativa las imágenes destacadas de sus artículos u otros campos personalizados, proporcionando así más datos para que Make.com los utilice.
+
+Estas consideraciones le permitirán no solo construir, sino también mantener y mejorar su sistema de automatización de manera segura y eficiente.
+
+7.0 Conclusión: Tu Primer Flujo de Trabajo Automatizado con IA
+
+¡Felicidades! Ha completado con éxito el proceso de diseño e implementación de un flujo de trabajo automatizado. Al seguir esta guía, ha combinado de manera efectiva una IA conversacional (Gemini CLI) para la planificación estratégica y una potente plataforma visual (Make.com) para la ejecución práctica. El resultado es un sistema de publicación automatizado, eficiente y personalizado que trabaja para usted, manteniendo sus redes sociales actualizadas con el contenido más reciente de su sitio web.
+
+Este es solo el comienzo de lo que es posible. La habilidad de traducir una necesidad en un prompt detallado para que una IA genere un plan técnico es una competencia cada vez más valiosa. Make.com se integra con más de 1,000 aplicaciones, abriendo un universo de posibilidades para automatizar tareas en marketing, ventas, operaciones y más. Le animamos a explorar otras integraciones y a seguir aprendiendo. La Make Academy ofrece cursos gratuitos que pueden llevar sus habilidades desde un nivel fundamental hasta avanzado, permitiéndole dominar por completo el arte de la automatización.

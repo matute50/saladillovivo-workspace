@@ -1,0 +1,73 @@
+
+:root {
+  --plyr-color-main: #ffc107; /* Amarillo Saladillo Vivo */
+  --plyr-video-background: #000000;
+  --plyr-control-icon-color: #ffffff;
+  --plyr-control-icon-color-hover: #ffc107;
+  --plyr-control-background: rgba(0, 0, 0, 0.6);
+  --plyr-tooltip-background: #000000;
+  --plyr-tooltip-color: #ffffff;
+  --plyr-video-control-background-hover: rgba(0, 0, 0, 0.8);
+  --plyr-video-progress-buffered-background: rgba(255, 255, 255, 0.25);
+  --plyr-range-thumb-background: #ffc107;
+  --plyr-range-track-background: rgba(255, 255, 255, 0.2);
+}
+
+.plyr--video {
+  font-family: 'Century Gothic', sans-serif;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.plyr__controls {
+  transition: opacity 0.3s ease;
+}
+
+.plyr--hide-controls .plyr__controls {
+  opacity: 0;
+}
+
+.plyr__control--overlaid {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  padding: 15px;
+  transition: background 0.3s ease;
+}
+
+.plyr__control--overlaid:hover {
+  background: #ffc107;
+}
+
+.plyr__control--overlaid svg {
+  width: 32px;
+  height: 32px;
+  left: 2px;
+  position: relative;
+}
+
+.plyr__progress input[type='range'] {
+  color: var(--plyr-color-main);
+}
+
+.plyr__time {
+  font-size: 14px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Ocultar logo de YouTube si se llega a mostrar */
+.plyr__video-wrapper .ytp-chrome-top,
+.plyr__video-wrapper .ytp-watermark {
+  display: none !important;
+}
+
+/* Ocultar el título del video de YouTube */
+.plyr__video-embed .plyr__video-title {
+    display: none !important;
+}
+
+/* Estilos para el spinner de carga */
+.plyr--loading .plyr__spinner {
+    border-top-color: var(--plyr-color-main);
+    border-left-color: var(--plyr-color-main);
+}

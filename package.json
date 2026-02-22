@@ -1,0 +1,29 @@
+{
+    "name": "saladillovivo-workspace",
+    "version": "1.0.0",
+    "private": true,
+    "packageManager": "npm@11.10.0",
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "lint": "turbo run lint"
+    },
+    "devDependencies": {
+        "@next/swc-win32-x64-msvc": "^16.1.6",
+        "turbo": "latest"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "overrides": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "@types/react": "18.2.0",
+        "@types/react-dom": "18.2.0",
+        "next": "14.2.35"
+    }
+}

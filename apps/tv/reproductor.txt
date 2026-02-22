@@ -1,0 +1,40 @@
+Configuración Actual del Reproductor Multimedia
+
+  1. Autoplay y Audio Inicial:
+   * Primer Video (al cargar la página):
+       * Se reproduce automáticamente.
+       * Se inicia silenciado (muted) para cumplir con las políticas de reproducción automática de los
+         navegadores.
+       * Una vez que el reproductor está listo, se desactiva explícitamente el silencio (unMute()) y el
+         volumen se establece al 5% (setVolume(5)).
+       * El estado interno de React (isMuted) se actualiza a false para que el icono de silencio desaparezca.
+   * Resultado: El primer video inicia automáticamente con sonido al 5% (con un pequeño retraso hasta que el
+     reproductor está listo).
+
+  2. Comportamiento de Audio en Videos Posteriores:
+   * Una vez que el audio se activa (después del primer video), todos los videos subsiguientes (automáticos o
+     seleccionados manualmente) se inician con sonido.
+   * Se aplica un fade-in de 1 segundo desde volumen 0 hasta el último volumen configurado por el usuario (o
+     el 5% por defecto).
+
+  3. Transiciones de Audio (Fade-in/Fade-out):
+   * Fade-out al Finalizar: Cuando un video está a punto de terminar (último segundo), el audio se desvanece
+     suavemente con un fade-out de 1 segundo.
+   * Fade-in al Iniciar: Al iniciar un nuevo video, el audio sube gradualmente con un fade-in de 1 segundo.
+
+  4. Volumen Persistente ("Sticky Volume"):
+   * El último nivel de volumen ajustado por el usuario se guarda y se aplica a los videos posteriores.
+
+  5. Controles de Reproducción:
+   * Línea de Tiempo Proporcional: El indicador de la línea de tiempo es proporcional a la duración real del
+     video.
+   * Búsqueda en Línea de Tiempo: Se permite retroceder en la línea de tiempo, pero no avanzar.
+   * Botón de Pantalla Completa: Funciona correctamente.
+
+  6. Videos de Introducción (Intro):
+   * Los videos de introducción se reproducen durante 5.5 segundos (iniciando 0.5s antes y terminando 0.5s
+     después de su duración original).
+   * Se inician silenciados para garantizar su reproducción automática.
+
+  7. Orden de Videos:
+   * Los videos se ordenan de forma aleatoria cada vez que se carga la página.

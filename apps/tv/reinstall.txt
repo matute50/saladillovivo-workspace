@@ -1,0 +1,32 @@
+ Necesitas tener una instalación de Node.js de 64 bits para que Next.js funcione correctamente en tu
+  sistema.
+
+  Por favor, sigue estos pasos con extrema atención para asegurarte de instalar la versión correcta:
+
+   1. Desinstala Node.js completamente (de nuevo):
+       * Ve a "Panel de control" -> "Programas y características" (o "Configuración" -> "Aplicaciones" ->
+         "Aplicaciones y características").
+       * Busca "Node.js" en la lista y desinstálalo.
+       * Reinicia tu computadora después de la desinstalación. Esto es crucial para limpiar cualquier rastro.
+
+   2. Descarga e instala Node.js de 64 bits (¡asegúrate de que sea la versión de 64 bits!):
+       * Ve a la página oficial de Node.js: https://nodejs.org/es/download/ (https://nodejs.org/es/download/)
+       * Busca la sección "Windows Installer (.msi)" y asegúrate de seleccionar la versión de 64 bits. El
+         archivo debería tener algo como x64 en su nombre (ej: node-v20.19.2-x64.msi).
+       * Descarga y ejecuta este instalador. Sigue los pasos.
+
+   3. Después de reinstalar Node.js (64 bits), repite los pasos de limpieza e instalación del proyecto:
+       * Detén el servidor de desarrollo de Next.js (si está corriendo, presiona Ctrl+C en tu terminal).
+       * Elimina la carpeta `node_modules` y el archivo `package-lock.json` de tu proyecto con los siguientes
+         comandos:
+   1         rmdir /s /q node_modules
+   2         del package-lock.json
+       * Limpia la caché de npm (de nuevo, para asegurarnos):
+   1         npm cache clean --force
+       * Reinstala todas las dependencias:
+   1         npm install
+       * Vuelve a iniciar el servidor de desarrollo:
+   1         npm run dev
+
+  Por favor, házmelo saber cuando hayas completado todos estos pasos y cuál es el resultado. Es muy
+  importante que Node.js sea la versión de 64 bits.

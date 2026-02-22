@@ -1,0 +1,18 @@
+.vjs-saladillo-dark .vjs-control-bar {
+  background: rgba(10, 10, 10, 0.8);
+}
+.vjs-saladillo-dark .vjs-big-play-button {
+  background: rgba(239, 68, 68, 0.9);
+  border: none;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+.vjs-saladillo-dark .vjs-big-play-button:hover {
+  background: rgba(255, 0, 0, 0.8);
+}
+.vjs-saladillo-dark .vjs-play-progress {
+  background-color: #ef4444 !important;
+}
+.vjs-saladillo-dark .vjs-slider {
+  background-color: rgba(255, 255, 255, 0.2);
+}

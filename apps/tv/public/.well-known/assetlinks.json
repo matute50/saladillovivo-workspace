@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "ar.com.saladillovivo.tv.twa",
+            "sha256_cert_fingerprints": [
+                "87:FE:7A:83:07:F7:A6:77:92:F7:F4:E5:0F:FF:56:72:8C:64:24:79:06:25:18:DD:FC:DB:51:8F:54:36:A3:8C"
+            ]
+        }
+    }
+]

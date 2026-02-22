@@ -1,0 +1,690 @@
+{
+    "name": "Integration RSS",
+    "flow": [
+        {
+            "id": 1,
+            "module": "rss:TriggerNewArticle",
+            "version": 4,
+            "parameters": {
+                "url": "https://www.saladillovivo.com.ar/rss.xml",
+                "gzip": true,
+                "include": [],
+                "password": "",
+                "username": "",
+                "maxResults": 5
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -373,
+                    "y": -26
+                },
+                "restore": {},
+                "parameters": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of returned items",
+                        "required": true
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "password",
+                        "type": "text",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "include",
+                        "type": "select",
+                        "label": "Process RSS fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "google-merchant-center",
+                                "itunes"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "title",
+                        "type": "text",
+                        "label": "Title"
+                    },
+                    {
+                        "name": "description",
+                        "type": "text",
+                        "label": "Description"
+                    },
+                    {
+                        "name": "summary",
+                        "type": "text",
+                        "label": "Summary"
+                    },
+                    {
+                        "name": "author",
+                        "type": "text",
+                        "label": "Author"
+                    },
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL"
+                    },
+                    {
+                        "name": "dateUpdated",
+                        "type": "date",
+                        "label": "Date updated"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "comments",
+                        "type": "url",
+                        "label": "Comments"
+                    },
+                    {
+                        "name": "image",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Image"
+                    },
+                    {
+                        "name": "categories",
+                        "spec": {
+                            "type": "text"
+                        },
+                        "type": "array",
+                        "label": "Categories"
+                    },
+                    {
+                        "name": "source",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "Name"
+                            },
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Source"
+                    },
+                    {
+                        "name": "enclosures",
+                        "spec": [
+                            {
+                                "name": "url",
+                                "type": "url",
+                                "label": "URL"
+                            },
+                            {
+                                "name": "type",
+                                "type": "text",
+                                "label": "Type"
+                            },
+                            {
+                                "name": "length",
+                                "type": "number",
+                                "label": "Length"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Enclosures"
+                    },
+                    {
+                        "help": "Other RSS fields. All values are in text format.",
+                        "name": "rssFields",
+                        "spec": [
+                            {
+                                "name": "title",
+                                "type": "text",
+                                "label": "title"
+                            },
+                            {
+                                "name": "description",
+                                "type": "text",
+                                "label": "description"
+                            },
+                            {
+                                "name": "link",
+                                "type": "text",
+                                "label": "link"
+                            },
+                            {
+                                "name": "guid",
+                                "type": "text",
+                                "label": "guid"
+                            },
+                            {
+                                "name": "pubdate",
+                                "type": "text",
+                                "label": "pubdate"
+                            },
+                            {
+                                "name": "enclosure",
+                                "type": "text",
+                                "label": "enclosure"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "RSS fields"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 22,
+            "module": "datastore:GetRecord",
+            "version": 1,
+            "parameters": {
+                "datastore": 52577
+            },
+            "mapper": {
+                "key": "{{1.id}}",
+                "returnWrapped": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": -48,
+                    "y": -29
+                },
+                "restore": {
+                    "parameters": {
+                        "datastore": {
+                            "label": "Noticias Publicadas"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "datastore",
+                        "type": "datastore",
+                        "label": "Data store",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "key",
+                        "type": "text",
+                        "label": "Key",
+                        "required": true
+                    },
+                    {
+                        "name": "returnWrapped",
+                        "type": "boolean",
+                        "label": "Return Wrapped Output",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "help": "",
+                        "name": "noticiaID",
+                        "type": "text",
+                        "label": null,
+                        "default": null,
+                        "required": false,
+                        "multiline": false
+                    }
+                ]
+            }
+        },
+        {
+            "id": 30,
+            "module": "http:ActionGetFile",
+            "version": 3,
+            "parameters": {
+                "handleErrors": false
+            },
+            "mapper": {
+                "url": "{{1.enclosures[].url}}",
+                "method": "get",
+                "serializeUrl": false,
+                "shareCookies": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 223,
+                    "y": -46
+                },
+                "restore": {},
+                "parameters": [
+                    {
+                        "name": "handleErrors",
+                        "type": "boolean",
+                        "label": "Evaluate all states as errors (except for 2xx and 3xx )",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "serializeUrl",
+                        "type": "boolean",
+                        "label": "Serialize URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "hidden",
+                        "label": "Method"
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 526,
+                    "y": -37
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 23,
+                            "module": "datastore:AddRecord",
+                            "version": 1,
+                            "parameters": {
+                                "datastore": 52577
+                            },
+                            "mapper": {
+                                "key": "{{1.id}}",
+                                "data": {
+                                    "noticiaID": "{{1.id}}"
+                                },
+                                "overwrite": "{{true}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 916,
+                                    "y": -11
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "overwrite": {
+                                            "mode": "edit"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "datastore": {
+                                            "label": "Noticias Publicadas"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "datastore",
+                                        "type": "datastore",
+                                        "label": "Data store",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "key",
+                                        "type": "text",
+                                        "label": "Key"
+                                    },
+                                    {
+                                        "name": "overwrite",
+                                        "type": "boolean",
+                                        "label": "Overwrite an existing record",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "data",
+                                        "spec": [
+                                            {
+                                                "name": "noticiaID",
+                                                "type": "text",
+                                                "label": null
+                                            }
+                                        ],
+                                        "type": "collection",
+                                        "label": "Record"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 29,
+                            "module": "facebook-pages:CreatePostWithPhotos",
+                            "version": 6,
+                            "parameters": {
+                                "__IMTCONN__": 5503869
+                            },
+                            "mapper": {
+                                "photos": [
+                                    {
+                                        "url": "{{30.data}}",
+                                        "type": "url"
+                                    }
+                                ],
+                                "page_id": "767280556466124"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 912,
+                                    "y": -250
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "photos": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "type": {
+                                                        "mode": "chose",
+                                                        "label": "Use a photo URL"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "page_id": {
+                                            "mode": "chose",
+                                            "label": "Saladillo Vivo (Saladillo)"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "facebook"
+                                            },
+                                            "label": "saladillo vivo (Saladillo Vivo)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:facebook",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "page_id",
+                                        "type": "select",
+                                        "label": "Page",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "photos",
+                                        "spec": [
+                                            {
+                                                "name": "type",
+                                                "type": "select",
+                                                "label": "Image input type",
+                                                "options": [
+                                                    {
+                                                        "label": "Map from previous module",
+                                                        "value": "data",
+                                                        "nested": [
+                                                            {
+                                                                "name": "fileName",
+                                                                "type": "filename",
+                                                                "label": "File name",
+                                                                "required": true,
+                                                                "semantic": "file:name"
+                                                            },
+                                                            {
+                                                                "name": "data",
+                                                                "type": "buffer",
+                                                                "label": "Data",
+                                                                "required": true,
+                                                                "semantic": "file:data"
+                                                            }
+                                                        ],
+                                                        "default": true
+                                                    },
+                                                    {
+                                                        "label": "Use a photo URL",
+                                                        "value": "url",
+                                                        "nested": [
+                                                            {
+                                                                "name": "url",
+                                                                "type": "url",
+                                                                "label": "URL",
+                                                                "required": true
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "caption",
+                                                "type": "text",
+                                                "label": "Image caption"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Photos",
+                                        "required": true,
+                                        "validate": {
+                                            "maxItems": 30,
+                                            "minItems": 1
+                                        }
+                                    },
+                                    {
+                                        "name": "message",
+                                        "type": "text",
+                                        "label": "Post caption"
+                                    },
+                                    {
+                                        "name": "date",
+                                        "type": "date",
+                                        "label": "Publish date"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": [
+                [
+                    {
+                        "id": 18,
+                        "module": "instagram-business:CreatePostPhoto",
+                        "version": 1,
+                        "parameters": {
+                            "__IMTCONN__": 5503869
+                        },
+                        "mapper": {
+                            "caption": "{{1.title}}",
+                            "accountId": "17841475951168418",
+                            "image_url": "{{1.enclosures[].url}}"
+                        },
+                        "metadata": {
+                            "designer": {
+                                "x": 857,
+                                "y": 239,
+                                "messages": [
+                                    {
+                                        "category": "link",
+                                        "severity": "warning",
+                                        "message": "The module is not connected to the data flow."
+                                    },
+                                    {
+                                        "category": "reference",
+                                        "severity": "warning",
+                                        "message": "Referenced module 'RSS - Watch RSS feed items' [1] is not accessible."
+                                    }
+                                ]
+                            },
+                            "restore": {
+                                "expect": {
+                                    "accountId": {
+                                        "mode": "chose",
+                                        "label": "Saladillo Vivo (Saladillo) (@saladillovivo1972)"
+                                    },
+                                    "user_tags": {
+                                        "mode": "chose"
+                                    }
+                                },
+                                "parameters": {
+                                    "__IMTCONN__": {
+                                        "data": {
+                                            "scoped": "true",
+                                            "connection": "facebook"
+                                        },
+                                        "label": "saladillo vivo (Saladillo Vivo)"
+                                    }
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "name": "__IMTCONN__",
+                                    "type": "account:facebook",
+                                    "label": "Connection",
+                                    "required": true
+                                }
+                            ],
+                            "expect": [
+                                {
+                                    "name": "accountId",
+                                    "type": "select",
+                                    "label": "Page",
+                                    "required": true
+                                },
+                                {
+                                    "name": "image_url",
+                                    "type": "url",
+                                    "label": "Photo URL",
+                                    "required": true
+                                },
+                                {
+                                    "name": "caption",
+                                    "type": "text",
+                                    "label": "Caption"
+                                },
+                                {
+                                    "name": "user_tags",
+                                    "spec": [
+                                        {
+                                            "name": "username",
+                                            "type": "text",
+                                            "label": "Username",
+                                            "required": true,
+                                            "validate": {
+                                                "pattern": "^(?!@)"
+                                            }
+                                        },
+                                        {
+                                            "name": "x",
+                                            "type": "number",
+                                            "label": "X position",
+                                            "required": true,
+                                            "validate": {
+                                                "max": 1,
+                                                "min": 0
+                                            }
+                                        },
+                                        {
+                                            "name": "y",
+                                            "type": "number",
+                                            "label": "Y position",
+                                            "required": true,
+                                            "validate": {
+                                                "max": 1,
+                                                "min": 0
+                                            }
+                                        }
+                                    ],
+                                    "type": "array",
+                                    "label": "User Tags"
+                                },
+                                {
+                                    "name": "location_id",
+                                    "type": "text",
+                                    "label": "Location ID"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            ]
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}

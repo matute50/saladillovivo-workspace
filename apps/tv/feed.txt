@@ -1,0 +1,215 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+<title>
+<![CDATA[ Saladillo Vivo - Últimas Noticias ]]>
+</title>
+<description>
+<![CDATA[ El feed de noticias de Saladillo Vivo. ]]>
+</description>
+<link>https://www.saladillovivo.com.ar</link>
+<generator>RSS for Node</generator>
+<lastBuildDate>Wed, 05 Nov 2025 23:55:59 GMT</lastBuildDate>
+<atom:link href="https://www.saladillovivo.com.ar/rss.xml" rel="self" type="application/rss+xml"/>
+<pubDate>Wed, 05 Nov 2025 23:55:58 GMT</pubDate>
+<language>
+<![CDATA[ es ]]>
+</language>
+<ttl>60</ttl>
+<item>
+<title>
+<![CDATA[ Hospital Doctor Posadas | ¡Seguimos invirtiendo en tecnología! ]]>
+</title>
+<description>
+<![CDATA[ Nuestro Hospital incorporó una nueva torre de laparoscopía STORZ, que permitirá realizar cirugías y procedimientos diagnósticos con mayor precisión, rapidez y s ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/hospital-doctor-posadas-seguimos-invirtiendo-en-tecnologia</link>
+<guid isPermaLink="false">hospital-doctor-posadas-seguimos-invirtiendo-en-tecnologia</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Wed, 05 Nov 2025 01:42:21 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2Fimagenes%2Fhospital-doctor-posadas-seguimos-invirtiendo-en-tecnologia-1762306942669.jpeg%3Ft%3D1762306943166" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Juntada La Oxidada | Una fiesta multitudinaria ]]>
+</title>
+<description>
+<![CDATA[ La Juntada de La Oxidada, volvió a sus orígenes en Álvarez de Toledo. Un encuentro convocante de centenares de vehículos y miles de personas, con una exposición ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/juntada-la-oxidada-una-fiesta-multitudinaria</link>
+<guid isPermaLink="false">juntada-la-oxidada-una-fiesta-multitudinaria</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Wed, 05 Nov 2025 01:24:26 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2Fimagenes%2Fjuntada-la-oxidada-una-fiesta-multitudinaria-1762305866263.jpeg%3Ft%3D1762305867202" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ El obispo Hugo Manuel Salaberry aclaró la situación sobre el padre Sergio Schwindt ]]>
+</title>
+<description>
+<![CDATA[ Dada la trascendencia en medios de comunicación y redes sociales, les informo que el padre Sergio Schwindt se encuentra bajo la tutela de la figura de Apoyo del ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/el-obispo-hugo-manuel-salaberry-aclaro-la-situacion-sobre-el-padre-sergio-schwindt</link>
+<guid isPermaLink="false">el-obispo-hugo-manuel-salaberry-aclaro-la-situacion-sobre-el-padre-sergio-schwindt</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Thu, 30 Oct 2025 01:01:17 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fahorasaladillo-diariodigital.com.ar%2Fwp-content%2Fuploads%2F2025%2F10%2Fobispo.jpg" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Reanudaron la construcción de los carteles en los accesos a Polvaredas ]]>
+</title>
+<description>
+<![CDATA[ Tras el desafortunado incidente ocurrido a mediados de agosto pasado, la empresa contratada por el Municipio de Saladillo reanudó en estos días la obra destinad ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/reanudaron-la-construccion-de-los-carteles-en-los-accesos-a-polvaredas</link>
+<guid isPermaLink="false">reanudaron-la-construccion-de-los-carteles-en-los-accesos-a-polvaredas</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Wed, 29 Oct 2025 18:19:45 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2F1761761986069-ivdds9z.png" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Arrospide visitó la Delegación de Del Carril donde mantuvo una reunión con el Delegado de la localidad ]]>
+</title>
+<description>
+<![CDATA[ Personal municipal del área Eléctrica conectó 4 tableros para el funcionamiento de las nuevas cámaras de seguridad en Del Carril. “Esto permitirá el funcionami ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/arrospide-visito-la-delegacion-de-del-carril-donde-mantuvo-una-reunion-con-el-delegado-de-la-localidad</link>
+<guid isPermaLink="false">arrospide-visito-la-delegacion-de-del-carril-donde-mantuvo-una-reunion-con-el-delegado-de-la-localidad</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Wed, 29 Oct 2025 16:51:12 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2F1761756672806-rkt9050.png" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Prórroga para la 15ta sesión ordinaria ]]>
+</title>
+<description>
+<![CDATA[ VISTO el expediente N° 305/2025, iniciado por el Presidente del H.C.D. de Saladillo, Dr. Alejandro Armendáriz, solicitando prorrogar la Décima Quinta Sesión Or ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/prorroga-para-la-15ta-sesion-ordinaria</link>
+<guid isPermaLink="false">prorroga-para-la-15ta-sesion-ordinaria</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Wed, 29 Oct 2025 16:42:46 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2F1761756166138-we2iznd.png" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Encuentro con autoridades del Ejército Argentino tras el proceso electoral ]]>
+</title>
+<description>
+<![CDATA[ Al finalizar los comicios, se trasladaron todas las urnas a la sede del Correo Argentino de nuestra ciudad, lugar al que también fueron trasladadas las urnas de ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/encuentro-con-autoridades-del-ejercito-argentino-tras-el-proceso-electoral</link>
+<guid isPermaLink="false">encuentro-con-autoridades-del-ejercito-argentino-tras-el-proceso-electoral</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Wed, 29 Oct 2025 16:40:41 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2Fimagenes%2Fencuentro-con-autoridades-del-ejercito-argentino-tras-el-proceso-electoral-1762296943018.jpeg%3Ft%3D1762296943666" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Futbol: Huracán venció a Colorado y esta en la punta de la tabla de en primera división ]]>
+</title>
+<description>
+<![CDATA[ Entre viernes y sábado se disputó la octava fecha del Torneo Clausura de Primera división, Reserva Sub 25 y Fútbol Senior organizado por la Liga de Fútbol de Sa ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/futbol-huracan-vencio-a-colorado-y-esta-en-la-punta-de-la-tabla-de-en-primera-division</link>
+<guid isPermaLink="false">futbol-huracan-vencio-a-colorado-y-esta-en-la-punta-de-la-tabla-de-en-primera-division</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Tue, 28 Oct 2025 23:47:58 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2F1761695278677-n0gmpcl.png" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Del Carril monitoreado por más cámaras de seguridad ]]>
+</title>
+<description>
+<![CDATA[ Este sábado, personal del área eléctrica municipal realizó trabajos de conexionado de 4 tableros para el funcionamiento de las nuevas cámaras de seguridad en la ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/del-carril-monitoreado-por-mas-camaras-de-seguridad</link>
+<guid isPermaLink="false">del-carril-monitoreado-por-mas-camaras-de-seguridad</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Tue, 28 Oct 2025 22:44:55 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2F1761691495342-rakhm9m.png" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Resultados finales en Saladillo ]]>
+</title>
+<description>
+<![CDATA[ Con el mapa bonaerense teñido de violeta Saladillo no fue la excepción. La imagen refleja lo acontecido ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/resultados-finales-en-saladillo</link>
+<guid isPermaLink="false">resultados-finales-en-saladillo</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Tue, 28 Oct 2025 19:38:35 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2F1761680365565-rlskuzw.png" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Trabajos de la SecretarÍa de Obras Públicas ]]>
+</title>
+<description>
+<![CDATA[ El club de pesca de saladillo nos ha facilitado estas fotos áreas que nos permiten tomar dimensión de la gran masa de agua que está entregando el arroyo a la z ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/trabajos-de-la-secretaria-de-obras-publicas</link>
+<guid isPermaLink="false">trabajos-de-la-secretaria-de-obras-publicas</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Tue, 14 Oct 2025 12:55:12 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2Fimagenes-noticias_1760446512568_qhbien8.jpeg" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ Información sobre el viaje de la Delegación de Saladillo hacia Mar del Plata | Cambio de rutas ]]>
+</title>
+<description>
+<![CDATA[ Desde el Municipio se informó que habiéndose tomado conocimiento de la situación hidrica imperante en la Ruta 226 en el partido de Balcarce con anegamientos imp ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/informacion-sobre-el-viaje-de-la-delegacion-de-saladillo-hacia-mar-del-plata-cambio-de-rutas</link>
+<guid isPermaLink="false">informacion-sobre-el-viaje-de-la-delegacion-de-saladillo-hacia-mar-del-plata-cambio-de-rutas</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Mon, 13 Oct 2025 19:09:12 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2F1760382553366-ry752ku.png" length="0" type="image/png"/>
+</item>
+<item>
+<title>
+<![CDATA[ NUEVO PARQUE SOLAR | CES Energía realizó el acto de licitaciones para la construcción de su cuarto Parque. ]]>
+</title>
+<description>
+<![CDATA[ Saladillo está a punto de convertirse en el Partido con más Parques solares de la Provincia de Buenos Aires y el país con un Proyecto de construcción del cuarto ]]>
+</description>
+<link>https://www.saladillovivo.com.ar/noticia/nuevo-parque-solar-ces-energia-realizo-el-acto-de-licitaciones-para-la-construccion-de-su-cuarto-parque</link>
+<guid isPermaLink="false">nuevo-parque-solar-ces-energia-realizo-el-acto-de-licitaciones-para-la-construccion-de-su-cuarto-parque</guid>
+<dc:creator>
+<![CDATA[ Equipo Editorial ]]>
+</dc:creator>
+<pubDate>Fri, 10 Oct 2025 01:11:00 GMT</pubDate>
+<enclosure url="https://www.saladillovivo.com.ar/api/proxy?image=https%3A%2F%2Fotwvfihzaznyjvjtkvvd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagenes-noticias%2Fimagenes-noticias_1760058660231_ocjr6br.jpeg" length="0" type="image/png"/>
+</item>
+</channel>
+</rss>

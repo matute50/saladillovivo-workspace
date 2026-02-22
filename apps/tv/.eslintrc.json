@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals"
+  ],
+  "rules": {
+    // otras reglas...
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}
