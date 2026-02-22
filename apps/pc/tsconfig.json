@@ -25,6 +25,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@saladillo/core": [
+        "../../packages/core"
       ]
     }
   },
