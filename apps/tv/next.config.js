@@ -11,7 +11,12 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   transpilePackages: ['@saladillo/core'],
-  // -------------------------------------
+
+  webpack: (config) => {
+    const path = require('path');
+    config.resolve.alias['@saladillo/core'] = path.resolve(__dirname, '../../packages/core');
+    return config;
+  },
 
   images: {
     remotePatterns: [

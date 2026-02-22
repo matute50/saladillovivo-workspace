@@ -1,3 +1,4 @@
+import path from 'path';
 import withPWAInit from "@ducanh2912/next-pwa";
 
 /** @type {import('next').NextConfig} */
@@ -11,6 +12,11 @@ const nextConfig = {
     },
 
     transpilePackages: ['@saladillo/core'],
+
+    webpack: (config) => {
+        config.resolve.alias['@saladillo/core'] = path.resolve(process.cwd(), '../../packages/core');
+        return config;
+    },
 
     eslint: {
         ignoreDuringBuilds: true,
