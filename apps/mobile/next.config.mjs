@@ -14,7 +14,10 @@ const nextConfig = {
     transpilePackages: ['@saladillo/core'],
 
     webpack: (config) => {
-        config.resolve.alias['@saladillo/core'] = path.resolve(process.cwd(), '../../packages/core');
+        const corePath = path.resolve(process.cwd(), '../../packages/core');
+        config.resolve.alias['@saladillo/core'] = corePath;
+        config.resolve.modules.push(path.resolve(process.cwd(), 'node_modules'));
+        config.resolve.modules.push(path.resolve(process.cwd(), '../../node_modules'));
         return config;
     },
 

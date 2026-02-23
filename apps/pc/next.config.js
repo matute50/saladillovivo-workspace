@@ -16,7 +16,12 @@ const nextConfig = {
 
   webpack: (config) => {
     const path = require('path');
-    config.resolve.alias['@saladillo/core'] = path.resolve(__dirname, '../../packages/core');
+    const corePath = path.resolve(__dirname, '../../packages/core');
+
+    config.resolve.alias['@saladillo/core'] = corePath;
+    config.resolve.modules.push(path.resolve(__dirname, 'node_modules'));
+    config.resolve.modules.push(path.resolve(__dirname, '../../node_modules'));
+
     return config;
   },
 
