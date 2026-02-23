@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@saladillo/core": "file:../../packages/core",
+    "@saladillo/core": "*",
     "@ducanh2912/next-pwa": "^10.2.9",
     "@supabase/supabase-js": "^2.93.3",
     "autoprefixer": "^10.4.23",

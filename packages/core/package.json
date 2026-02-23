@@ -1,8 +1,8 @@
 {
     "name": "@saladillo/core",
     "version": "1.0.0",
-    "main": "./index.ts",
-    "types": "./index.ts",
+    "main": "./index",
+    "types": "./index",
     "exports": {
         ".": "./index.ts"
     },

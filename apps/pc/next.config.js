@@ -16,11 +16,13 @@ const nextConfig = {
 
   webpack: (config) => {
     const path = require('path');
-    const corePath = path.resolve(__dirname, '../../packages/core');
+    // Forzamos la ruta absoluta desde la raíz del proceso de build
+    const corePath = path.resolve(process.cwd(), '../../packages/core');
 
     config.resolve.alias['@saladillo/core'] = corePath;
-    config.resolve.modules.push(path.resolve(__dirname, 'node_modules'));
-    config.resolve.modules.push(path.resolve(__dirname, '../../node_modules'));
+
+    // Aseguramos que Webpack busque extensiones .ts/.tsx en esa carpeta
+    config.resolve.extensions.push('.ts', '.tsx');
 
     return config;
   },
