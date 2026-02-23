@@ -1,1 +1,1 @@
-export * from '@saladillo/core';
+export * from './core/types';

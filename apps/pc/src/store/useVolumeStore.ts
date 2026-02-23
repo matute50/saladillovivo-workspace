@@ -1,1 +1,1 @@
-export { useVolumeStore } from '@saladillo/core';
+export { useVolumeStore } from '@/lib/core/useVolumeStore';
