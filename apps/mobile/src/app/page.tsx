@@ -16,7 +16,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 
   let title = "Saladillo ViVo";
   let description = "Noticias y videos de Saladillo en tiempo real.";
-  let imageUrl = `${SITE_URL}/brand_social.png?v=4`; // Default brand image (1200x630 optimized)
+  let imageUrl: string | undefined = undefined; // Sin logo residual
 
   try {
     if (id) {
@@ -38,9 +38,9 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
         } else if (video.url) {
           // Prioridad 2: Extracción robusta de YouTube
           const match = video.url.match(/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/|shorts\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/);
-          const id = (match && match[1]) ? match[1] : null;
-          if (id && id.length === 11) {
-            imageUrl = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+          const ytId = (match && match[1]) ? match[1] : null;
+          if (ytId && ytId.length === 11) {
+            imageUrl = `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg`;
           }
         }
       }
@@ -58,12 +58,13 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
       description,
       url: `${SITE_URL}${id ? `/?id=${id}` : (v ? `/?v=${v}` : '')}`,
       siteName: 'Saladillo ViVo',
-      images: [{
-        url: imageUrl,
-        width: 1200,
-        height: 630,
-        type: 'image/jpeg', // Most common fallback, works for PNGs usually too in readers
-      }],
+      ...(imageUrl ? {
+        images: [{
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+        }],
+      } : {}),
       locale: 'es_AR',
       type: id ? 'article' : 'website',
     },
@@ -71,7 +72,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
       card: 'summary_large_image',
       title,
       description,
-      images: [imageUrl],
+      ...(imageUrl ? { images: [imageUrl] } : {}),
     },
     alternates: {
       canonical: `${SITE_URL}${id ? `/?id=${id}` : (v ? `/?v=${v}` : '')}`,

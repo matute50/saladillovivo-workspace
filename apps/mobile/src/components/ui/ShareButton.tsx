@@ -1,10 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Share2, Check, ExternalLink } from 'lucide-react';
+import { Share2, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Video, Article } from '@/lib/types';
-import { toast } from 'sonner';
 
 interface ShareButtonProps {
     content?: Video | Article | null;
@@ -25,7 +24,7 @@ export const ShareButton = ({
 }: ShareButtonProps) => {
     const [copied, setCopied] = React.useState(false);
 
-    const handleShare = async (e: React.MouseEvent) => {
+    const handleShare = (e: React.MouseEvent) => {
         e.stopPropagation();
 
         const siteUrl = 'https://m.saladillovivo.com.ar';
@@ -34,24 +33,20 @@ export const ShareButton = ({
 
         if (content) {
             if ('url_slide' in content) {
-                // Es Noticia (Article)
                 shareUrl = `${siteUrl}/?id=${content.id}`;
                 shareTitle = content.titulo;
             } else if ('url' in content) {
-                // Es Video (Video)
                 shareUrl = `${siteUrl}/?v=${content.id}`;
                 shareTitle = content.nombre;
             }
         }
 
-        // WhatsApp Direct Share
-        // Solo enviamos la URL. WhatsApp generará la "Rich Preview" (Tarjeta) automáticamente.
-        // Evitamos poner el título en texto plano para que no salga duplicado con el título de la tarjeta.
-        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareUrl)}`;
+        // WhatsApp genera el preview automáticamente (imagen + título) desde los metadatos OG.
+        // Solo se envía la URL para evitar duplicación del link y texto innecesario.
+        const whatsappText = shareUrl;
 
-        window.open(whatsappUrl, '_blank');
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappText)}`, '_blank');
 
-        // Feedback visual simple
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
@@ -84,7 +79,7 @@ export const ShareButton = ({
         );
     }
 
-    // Variant 'simple' (e.g. for Decree Modal or lists)
+    // Variant 'simple'
     return (
         <button
             onClick={handleShare}
