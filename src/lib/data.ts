@@ -346,31 +346,13 @@ export async function getActiveAds(): Promise<Ad[]> {
       next: { revalidate: 300 }
     });
 
-    let dbAds: Ad[] = [];
     if (response.ok) {
-      dbAds = await response.json();
+      return await response.json();
     }
-
-    const staticAds: Ad[] = [
-      {
-        id: 'cestel-static-ad',
-        imageUrl: '/images/cestel.png',
-        linkUrl: 'https://www.cestel.com.ar',
-        name: 'CESTEL',
-      }
-    ];
-
-    return [...staticAds, ...dbAds];
+    return [];
   } catch (error) {
     console.error('Error fetching ads:', error);
-    return [
-      {
-        id: 'cestel-static-ad',
-        imageUrl: '/images/cestel.png',
-        linkUrl: 'https://www.cestel.com.ar',
-        name: 'CESTEL',
-      }
-    ];
+    return [];
   }
 }
 
