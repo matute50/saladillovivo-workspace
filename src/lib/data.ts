@@ -335,7 +335,7 @@ export async function getActiveBanners(): Promise<Banner[]> {
 
 export async function getActiveAds(): Promise<Ad[]> {
   const { supabaseUrl, supabaseAnonKey } = checkSupabaseCredentials();
-  const apiUrl = `${supabaseUrl}/rest/v1/anuncios?select=id,imageUrl,name,isActive,linkUrl&isActive=eq.true&order=createdAt.desc`;
+  const apiUrl = `${supabaseUrl}/rest/v1/anuncios?select=id,image_url,title,is_active,link_url&is_active=eq.true&order=created_at.desc`;
 
   try {
     const response = await fetch(apiUrl, {
@@ -347,7 +347,14 @@ export async function getActiveAds(): Promise<Ad[]> {
     });
 
     if (response.ok) {
-      return await response.json();
+      const dbAds = await response.json();
+      return dbAds.map((ad: any) => ({
+        id: ad.id,
+        imageUrl: ad.image_url,
+        name: ad.title,
+        linkUrl: ad.link_url,
+        isActive: ad.is_active,
+      }));
     }
     return [];
   } catch (error) {
