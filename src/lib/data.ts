@@ -8,8 +8,8 @@ let _cachedCredentials: { supabaseUrl: string; supabaseAnonKey: string } | null 
 function checkSupabaseCredentials() {
   if (_cachedCredentials) return _cachedCredentials;
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://otwvfihzaznyjvjtkvvd.supabase.co';
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im90d3ZmaWh6YXpueWp2anRrdnZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUxMDQ3OTAsImV4cCI6MjA2MDY4MDc5MH0.YbKdivZM6gJCdXAf51Xctn8IpKhQCrMch89NoHwP0Z4';
 
   if (!supabaseUrl || !supabaseAnonKey) {
     console.error('Supabase URL or Anon Key is not defined.');
