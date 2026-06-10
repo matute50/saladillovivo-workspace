@@ -7,6 +7,13 @@ export function middleware(request: NextRequest) {
 
   const userAgent = headers.get('user-agent') || ''
 
+  // Redirección global del dominio principal al proyecto de Vercel
+  if (hostname === 'saladillovivo.com.ar' || hostname === 'www.saladillovivo.com.ar') {
+    const redirectUrl = new URL(url.pathname, 'https://saladillo-vivo-pro.vercel.app')
+    redirectUrl.search = url.search
+    return NextResponse.redirect(redirectUrl, { status: 308 })
+  }
+
   // Detección de TV (Simplificada para Middleware potente)
   const isTV = /TV|Large Screen|SmartTV|GoogleTV|AppleTV|HbbTV|CrKey|Tizen|WebOS/i.test(userAgent)
 
@@ -34,12 +41,10 @@ export function middleware(request: NextRequest) {
   }
 
   // 3. Si es Desktop (Cualquier otro caso)
-  // Si el usuario está en un subdominio tv. o m. pero es Desktop, podemos devolverlo al principal?
-  // El requerimiento dice: "se debe abrir la versión existente en saladillovivo.com.ar"
   const isDesktop = !isTV && !isMobile
   if (isDesktop) {
     if (hostname === 'm.saladillovivo.com.ar' || hostname === 'tv.saladillovivo.com.ar') {
-      const desktopUrl = new URL(url.pathname, 'https://www.saladillovivo.com.ar')
+      const desktopUrl = new URL(url.pathname, 'https://saladillo-vivo-pro.vercel.app')
       desktopUrl.search = url.search
       return NextResponse.redirect(desktopUrl, { status: 307 })
     }
