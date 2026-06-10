@@ -7,13 +7,6 @@ export function middleware(request: NextRequest) {
 
   const userAgent = headers.get('user-agent') || ''
 
-  // Redirección global del dominio principal al proyecto de Vercel
-  if (hostname === 'saladillovivo.com.ar' || hostname === 'www.saladillovivo.com.ar') {
-    const redirectUrl = new URL(url.pathname, 'https://saladillo-vivo-pro.vercel.app')
-    redirectUrl.search = url.search
-    return NextResponse.redirect(redirectUrl, { status: 308 })
-  }
-
   // Detección de TV (Simplificada para Middleware potente)
   const isTV = /TV|Large Screen|SmartTV|GoogleTV|AppleTV|HbbTV|CrKey|Tizen|WebOS/i.test(userAgent)
 
@@ -44,7 +37,7 @@ export function middleware(request: NextRequest) {
   const isDesktop = !isTV && !isMobile
   if (isDesktop) {
     if (hostname === 'm.saladillovivo.com.ar' || hostname === 'tv.saladillovivo.com.ar') {
-      const desktopUrl = new URL(url.pathname, 'https://saladillo-vivo-pro.vercel.app')
+      const desktopUrl = new URL(url.pathname, 'https://www.saladillovivo.com.ar')
       desktopUrl.search = url.search
       return NextResponse.redirect(desktopUrl, { status: 307 })
     }
