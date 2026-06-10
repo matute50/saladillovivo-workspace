@@ -44,7 +44,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, index = 0, className = ''
       if (cleanUrl.startsWith('http://') || cleanUrl.startsWith('https://')) {
           return cleanUrl;
       }
-      return `${process.env.NEXT_PUBLIC_MEDIA_URL || ''}${cleanUrl.startsWith('/') ? cleanUrl : `/${cleanUrl}`}`;
+      const mediaUrlFallback = process.env.NEXT_PUBLIC_MEDIA_URL || 'https://media.saladillovivo.com.ar';
+      return `${mediaUrlFallback}${cleanUrl.startsWith('/') ? cleanUrl : `/${cleanUrl}`}`;
   };
 
   const finalImageUrl = getProcessedImageUrl(newsItem.image_url || newsItem.imageUrl);
@@ -81,7 +82,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ newsItem, index = 0, className = ''
                 if (clean.startsWith('http')) {
                     finalAudioUrl = clean;
                 } else {
-                    const mediaUrl = process.env.NEXT_PUBLIC_MEDIA_URL || '';
+                    const mediaUrl = process.env.NEXT_PUBLIC_MEDIA_URL || 'https://media.saladillovivo.com.ar';
                     finalAudioUrl = `${mediaUrl}${clean.startsWith('/') ? '' : '/'}${clean}`;
                 }
             }

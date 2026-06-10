@@ -30,7 +30,8 @@ export default function NoticiaClient({ article }: { article: Article }) {
     }
 
     // Otherwise, it's a relative path, prepend base URL
-    return `${process.env.NEXT_PUBLIC_MEDIA_URL || ''}${cleanUrl.startsWith('/') ? '' : '/'}${cleanUrl}`;
+    const mediaUrl = process.env.NEXT_PUBLIC_MEDIA_URL || 'https://media.saladillovivo.com.ar';
+    return `${mediaUrl}${cleanUrl.startsWith('/') ? '' : '/'}${cleanUrl}`;
   };
 
   const finalImageUrl = getSafeImageUrl(article.imageUrl);

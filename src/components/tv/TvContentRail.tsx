@@ -95,7 +95,8 @@ const TvContentRail: React.FC<TvContentRailProps> = ({ searchResults, isSearchin
       if (cleanUrl.startsWith('http://') || cleanUrl.startsWith('https://')) {
         return cleanUrl;
       }
-      return `${process.env.NEXT_PUBLIC_MEDIA_URL || ''}${cleanUrl.startsWith('/') ? cleanUrl : `/${cleanUrl}`}`;
+      const mediaUrl = process.env.NEXT_PUBLIC_MEDIA_URL || 'https://media.saladillovivo.com.ar';
+      return `${mediaUrl}${cleanUrl.startsWith('/') ? cleanUrl : `/${cleanUrl}`}`;
     };
 
     if (isArticle) {
