@@ -56,7 +56,8 @@ const ExclusiveVideoCarousel: React.FC<ExclusiveVideoCarouselProps> = ({ videos,
     }
 
     // CORRECCIÓN DE BUG: 'cleanUrl' no existía, debía ser 'cleanImageUrl'
-    return `${process.env.NEXT_PUBLIC_MEDIA_URL || ''}${cleanImageUrl.startsWith('/') ? '' : '/'}${cleanImageUrl}`;
+    const mediaUrl = process.env.NEXT_PUBLIC_MEDIA_URL || 'https://media.saladillovivo.com.ar';
+    return `${mediaUrl}${cleanImageUrl.startsWith('/') ? '' : '/'}${cleanImageUrl}`;
   };
 
   const handleVideoClick = (video: Video) => {
