@@ -109,6 +109,13 @@ const DesktopLayout = ({ data }: DesktopLayoutProps) => {
     }
   }, [availableCategoryMappings, hasInitializedPosition]);
 
+  // Fix out of bounds index when availableCategoryMappings shrinks after data load
+  useEffect(() => {
+    if (availableCategoryMappings.length > 0 && categoryIndex >= availableCategoryMappings.length) {
+      setCategoryIndex(0);
+    }
+  }, [availableCategoryMappings.length, categoryIndex]);
+
   const handleNextCategory = useCallback(() => {
     const total = availableCategoryMappings.length;
     setCategoryIndex(prevIndex => (prevIndex + 1) % total);
